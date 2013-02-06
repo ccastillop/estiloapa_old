@@ -1,0 +1,41 @@
+- title "Referencias"
+
+%table
+  %tr
+    %th Nombre
+    %th Autor
+    %th Fecha
+    %th Titulo articulo
+    %th Titulo libro revista periodico
+    %th Volumen
+    %th Paginas
+    %th Libre1
+    %th Libre2
+    %th Edicion
+    %th Ubicacion
+    %th Editorial
+    %th Fecha web
+    %th Direccion web
+    %th Descripcion
+  - for referencia in @referencias
+    %tr
+      %td= h referencia.nombre
+      %td= h referencia.autor
+      %td= h referencia.fecha
+      %td= h referencia.titulo_articulo
+      %td= h referencia.titulo_libro_revista_periodico
+      %td= h referencia.volumen
+      %td= h referencia.paginas
+      %td= h referencia.libre1
+      %td= h referencia.libre2
+      %td= h referencia.edicion
+      %td= h referencia.ubicacion
+      %td= h referencia.editorial
+      %td= h referencia.fecha_web
+      %td= h referencia.direccion_web
+      %td= h referencia.descripcion
+      %td= link_to 'Show', referencia
+      %td= link_to 'Edit', edit_referencia_path(referencia)
+      %td= link_to 'Destroy', referencia, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Referencia", new_referencia_path

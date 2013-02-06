@@ -1,0 +1,7 @@
+- title "Contenidos para #{@documento}", false
+
+%h1= "Contenidos de #{link_to(@documento,[@documento.user,@documento])}"
+%p= link_to "#{image_tag("icons/add.png",:title=>"Agregar")} Nuevo Contenido", new_documento_contenido_path(@documento)
+
+#tabla_contenidos
+  = render :partial => 'index'

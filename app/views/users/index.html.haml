@@ -1,0 +1,18 @@
+%h1 Lista de usuarios
+
+- form_tag("/users",:method => :get) do
+  = text_field_tag :palabras, @palabras
+  = submit_tag "Buscar usuario"
+
+%p= will_paginate(@users)
+%table
+  %tr
+    %th Id
+    %th Email
+    %th Nombre
+  - @users.each do |u|
+    %tr{:class=>cycle("odd","even")}
+      %td= link_to u.id, u
+      %td= link_to u.email, u
+      %td= u.nombre
+    

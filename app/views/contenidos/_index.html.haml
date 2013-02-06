@@ -1,0 +1,8 @@
+%table
+  - @contenidos.each do |contenido|
+    %tr(class="#{cycle("odd", "even")}")
+      %td(style="padding-left:#{10*(contenido.level-1)}px")= link_to contenido.nombre, edit_polymorphic_path([@documento, contenido])
+      %td= link_to image_tag("icons/add.png",:title=>"Agregar"), new_documento_contenido_path(@documento,:parent_id=>contenido.id)
+      %td= link_to_destroy [@documento,contenido] unless contenido.descendants.count > 0
+      %td= link_to ('&uarr;', move_left_contenido_path(contenido), :method => :post, :title => "Subir") if contenido.left_sibling
+      %td= link_to ('&darr;', move_right_contenido_path(contenido), :method => :post, :title => "Bajar") if contenido.right_sibling

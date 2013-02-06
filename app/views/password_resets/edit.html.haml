@@ -1,0 +1,19 @@
+%h1  Definir nueva clave
+%p= "Estimad@ cliente #{@user}. Por favor confirme una clave fácil de recordar para usted pero difícil de adivinar"
+%p La clave debe ser de más de 5 letras y números
+
+- form_for @user, :url => password_reset_path, :method => :put, :html => {:class => "form"} do |f|
+  = f.error_messages
+  %p 
+    = f.label :password, "Clave"
+    %br
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation, "Confirmar clave"
+    %br
+    = f.password_field :password_confirmation
+  %p
+    = f.submit "Actualizar mi clave e iniciar sesión", :class => "boton"
+  .clear
+
+

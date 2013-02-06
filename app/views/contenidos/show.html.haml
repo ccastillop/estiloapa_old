@@ -1,0 +1,32 @@
+
+- title @contenido
+%p
+  %strong Dentro de:
+  = link_to @documento, documento_contenidos_path(@documento)
+  =" / "
+  = @contenido.ancestors.all(:conditions=>"parent_id is not null").map{|p| link_to(p, [@documento,p])}.join(" / ")  
+  %br
+  %strong V# 
+  = @contenido.version
+  %strong Por:
+  = @contenido.user
+  |
+  = link_to ("Versión previa", documento_contenido_path(@documento, @contenido, :version => @contenido.version - 1)) if @contenido.version > 1
+  |
+  = link_to ("Última versión", documento_contenido_path(@documento, @contenido, :version => nil)) if params[:version]
+  |
+  = link_to_edit [@documento,@contenido]
+  |
+  = link_to_destroy [@documento,@contenido]
+  |
+  = link_to "Regresar", documento_contenidos_path(@documento)
+  |
+  = link_to "#{image_tag("icons/add.png",:title=>"Agregar")} Nuevo Contenido dentro de #{@contenido.parent}", new_documento_contenido_path(@documento,:parent_id=>@contenido.parent.id) if @contenido.parent
+  |
+  = link_to "#{image_tag("icons/add.png",:title=>"Agregar")} Nuevo Contenido dentro de #{@contenido}", new_documento_contenido_path(@documento,:parent_id=>@contenido.id)
+  |
+  = link_to "#{image_tag("icons/add.png",:title=>"Agregar")} Nuevo Contenido ", new_documento_contenido_path(@documento)
+
+
+= markdown @contenido.texto if @contenido.texto
+

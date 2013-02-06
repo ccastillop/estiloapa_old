@@ -1,0 +1,31 @@
+- unless @contenido.new_record?
+  %h1= "Modificando: #{@contenido}"
+.izquierda{:style=>"width:70%"}
+  - form_for [@documento,@contenido] do |f|
+    = f.error_messages
+    .izquierda{:style=>"width:35%"}
+      = f.label :nombre
+      %br
+      = f.text_field :nombre, :size => 40 
+      %br
+      = f.label :parent_id, "Dentro de"
+      %br
+      = select_tag 'parent_id', options_for_select( @documento.contenidos.all(:order=>"lft").map{|i| ["#{'-'*i.level} #{i.nombre}",i.id]  }, @contenido.parent_id )
+    .clear
+    = f.label :texto
+    %br
+    = f.text_area :texto, :cols=>85, :rows=>10
+    .clear
+    %p
+      = f.submit "Registrar cambios" unless request.xhr?
+      = submit_to_remote( 'update_btn', "Registrar", :url => [@documento,@contenido]) if request.xhr?
+
+.izquierda{:style=>"width:30%"}
+  /listado de imágenes
+  %iframe{:src=>documento_figuras_path(@documento), :width=>"100%", :height=>"300px"}
+
+/:javascript
+/  $(document).ready(function()	{
+/      $('#contenido_texto').markItUp(mySettingsCcp);
+/  });
+.clear

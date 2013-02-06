@@ -1,0 +1,16 @@
+%h1 Restaurar clave
+
+%p 
+  Ingrese los datos solicitados y le enviaremos instrucciones para restaurar su clave.
+  %br
+  Si no recuerda su correo electrónico por favor 
+  //= link_to "contáctenos", new_contacto_path
+  
+- form_tag password_resets_path, :class => "form" do
+  %p
+    %label Email:
+    %br
+    = text_field_tag "email", nil, :size => 30 
+  %p= submit_tag "Restaurar mi clave", :class => "boton" 
+  .clear
+

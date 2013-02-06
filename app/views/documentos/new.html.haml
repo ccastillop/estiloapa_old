@@ -1,0 +1,12 @@
+- title "Crear documento"
+%p
+  Ingrese la información solicitada. Luego podrá modificarla en cualquier momento.
+
+%p
+  Una vez que cree un documento podrá crear contenidos dentro de él. 
+  Lo mejor es armar una tabla de contenidos y luego ir ingresando
+  los contenidos conforme los tenga.
+
+= render :partial => 'form'
+
+%p= link_to "Back to List", user_documentos_path(@user)

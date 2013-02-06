@@ -1,0 +1,27 @@
+- unless @documento.caratula.blank?
+  .caratula
+    = markdown @documento.caratula
+- unless @documento.agradecimientos.blank?
+  .agradecimientos
+    = markdown @documento.agradecimientos
+- unless @documento.dedicatoria.blank?
+  .dedicatoria
+    = markdown @documento.dedicatoria
+- unless @documento.resumen.blank?
+  .resumen
+    = markdown @documento.resumen
+- unless @documento.abstract.blank?
+  .abstract
+    = markdown @documento.abstract
+  
+.toc
+  %h1.no-toc Tabla de contenidos
+  = tabla_contenidos(@documento)
+- if @documento.poner_lot
+  .lot{:id=>"lista_de_tablas"}
+    %h1.no-toc Lista de tablas
+    = "Lista de tablas"
+- if @documento.poner_lof
+  .lof{:id=>"lista_de_figuras"}
+    %h1.no-toc Lista de figuras
+    = lista_de_figuras(@documento)

@@ -1,0 +1,9 @@
+one:
+  nombre: MyString
+  ubicacion: MyString
+  user_id: 1
+
+two:
+  nombre: MyString
+  ubicacion: MyString
+  user_id: 1

@@ -1,0 +1,12 @@
+- title "Documentos de #{@user}"
+
+%p= link_to "Nuevo Documento", new_user_documento_path(@user)
+
+%table
+  - for documento in @documentos
+    %tr(class="#{cycle("odd", "even")}")
+      %td= documento.nombre
+      %td= link_to "Tabla de contenidos (#{documento.contenidos.count()})", documento_contenidos_path(documento)
+      %td= link_to "Ver", [@user, documento]
+      %td= link_to 'Modificar', edit_user_documento_path(@user, documento)
+      %td= link_to 'Eliminar', [@user, documento], :confirm => 'No va a quedar rastro alguno del documento \n ¿Estás realmente segur@?', :method => :delete

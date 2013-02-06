@@ -1,0 +1,62 @@
+
+- javascript :defaults
+
+/agrego el editor markupit!
+/- javascript "markitup/jquery.markitup.pack.js"
+/- javascript "markitup/sets/markdown/set.js"
+/- stylesheet "/javascripts/markitup/skins/markitup/style.css"
+/- stylesheet "/javascripts/markitup/sets/markdown/style.css"
+
+!!! Strict
+%html{html_attrs}
+  
+  %head
+    %title
+      = h(yield(:title) || "Untitled")
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+  
+  %body
+    #header
+      .contenido
+        #logo
+          %p="estilo<span class='apa'>APA</span>.com"
+          %p.slogan
+            hacemos el estilo APA fácil
+        #user
+          .current_user
+            - if current_user
+              = "BIenvenid@"
+              = link_to current_user, current_user
+              |
+              = link_to "Modificar datos", edit_user_path(current_user)
+              |
+              = link_to "Salir", user_session_path, :method => :delete, :confirm => "Cerraré la sesión. ¿Procedo?"
+          #menu
+            - tabs({:always_link => true }) do |tab|
+              = tab.home "Home", root_path
+              - if current_user
+                = tab.documentos "Documentos", user_documentos_path(current_user)
+                = tab.referencias "Referencias", referencias_path
+              - else
+                = tab.login "Iniciar sesión", new_user_session_path
+                = tab.signup "REGÍSTRESE", new_user_path
+              = tab.blog "Blog", "http://cristiancastillo.com"
+          .clear
+        .clear
+
+    #center
+      .contenido
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+    
+        - if show_title?
+          %h1=h yield(:title)
+    
+        = yield
+
+    #footer
+      .contenido
+        Desarrollado por
+        = link_to "Cristiam Castillo", "http://cristiancastillo.com"

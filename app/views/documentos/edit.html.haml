@@ -1,0 +1,8 @@
+- title "Modificar opciones del Documento"
+
+= render :partial => 'form'
+
+%p
+  = link_to "Mostrar", [@user, @documento]
+  |
+  = link_to "Regresar", user_documentos_path(@user)

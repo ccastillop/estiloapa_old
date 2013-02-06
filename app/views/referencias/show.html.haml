@@ -1,0 +1,54 @@
+- title "Referencia"
+
+%p
+  %strong Nombre:
+  =h @referencia.nombre
+%p
+  %strong Autor:
+  =h @referencia.autor
+%p
+  %strong Fecha:
+  =h @referencia.fecha
+%p
+  %strong Titulo Articulo:
+  =h @referencia.titulo_articulo
+%p
+  %strong Titulo Libro Revista Periodico:
+  =h @referencia.titulo_libro_revista_periodico
+%p
+  %strong Volumen:
+  =h @referencia.volumen
+%p
+  %strong Paginas:
+  =h @referencia.paginas
+%p
+  %strong Libre1:
+  =h @referencia.libre1
+%p
+  %strong Libre2:
+  =h @referencia.libre2
+%p
+  %strong Edicion:
+  =h @referencia.edicion
+%p
+  %strong Ubicacion:
+  =h @referencia.ubicacion
+%p
+  %strong Editorial:
+  =h @referencia.editorial
+%p
+  %strong Fecha Web:
+  =h @referencia.fecha_web
+%p
+  %strong Direccion Web:
+  =h @referencia.direccion_web
+%p
+  %strong Descripcion:
+  =h @referencia.descripcion
+
+%p
+  = link_to "Edit", edit_referencia_path(@referencia)
+  |
+  = link_to "Destroy", @referencia, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", referencias_path

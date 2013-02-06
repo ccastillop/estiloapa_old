@@ -1,0 +1,33 @@
+one:
+  nombre: MyString
+  autor: MyString
+  fecha: MyString
+  titulo_articulo: MyString
+  titulo_libro_revista_periodico: MyString
+  volumen: MyString
+  paginas: MyString
+  libre1: MyString
+  libre2: MyString
+  edicion: MyString
+  ubicacion: MyString
+  editorial: MyString
+  fecha_web: MyString
+  direccion_web: MyString
+  descripcion: MyString
+
+two:
+  nombre: MyString
+  autor: MyString
+  fecha: MyString
+  titulo_articulo: MyString
+  titulo_libro_revista_periodico: MyString
+  volumen: MyString
+  paginas: MyString
+  libre1: MyString
+  libre2: MyString
+  edicion: MyString
+  ubicacion: MyString
+  editorial: MyString
+  fecha_web: MyString
+  direccion_web: MyString
+  descripcion: MyString

@@ -1,0 +1,64 @@
+- form_for @referencia do |f|
+  = f.error_messages
+  %p
+    = f.label :nombre
+    %br
+    = f.text_field :nombre
+  %p
+    = f.label :autor
+    %br
+    = f.text_field :autor
+  %p
+    = f.label :fecha
+    %br
+    = f.text_field :fecha
+  %p
+    = f.label :titulo_articulo
+    %br
+    = f.text_field :titulo_articulo
+  %p
+    = f.label :titulo_libro_revista_periodico
+    %br
+    = f.text_field :titulo_libro_revista_periodico
+  %p
+    = f.label :volumen
+    %br
+    = f.text_field :volumen
+  %p
+    = f.label :paginas
+    %br
+    = f.text_field :paginas
+  %p
+    = f.label :libre1
+    %br
+    = f.text_field :libre1
+  %p
+    = f.label :libre2
+    %br
+    = f.text_field :libre2
+  %p
+    = f.label :edicion
+    %br
+    = f.text_field :edicion
+  %p
+    = f.label :ubicacion
+    %br
+    = f.text_field :ubicacion
+  %p
+    = f.label :editorial
+    %br
+    = f.text_field :editorial
+  %p
+    = f.label :fecha_web
+    %br
+    = f.text_field :fecha_web
+  %p
+    = f.label :direccion_web
+    %br
+    = f.text_field :direccion_web
+  %p
+    = f.label :descripcion
+    %br
+    = f.text_field :descripcion
+  %p
+    = f.submit "Submit"

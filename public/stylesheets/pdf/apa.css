@@ -1,0 +1,272 @@
+
+/*GENERALES*/
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li { 
+  margin: 0;
+  padding: 0 ;
+  /*margin: 2em 0 0.5em 0;*/
+  font: 12pt/2 "Times New Roman", sans-serif;  
+} 
+
+a { text-decoration: none; color: black }
+
+
+h1 { 
+    page-break-before: always;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h2 { 
+    text-align: center;    
+}
+
+h3 { 
+    text-align: center;
+    font-style: italic;
+}
+
+h4 { 
+  font-style: italic;
+}
+
+h5
+{
+  font-style: italic;
+  display: inline;
+}
+
+/* define default page and names pages: cover, blank, frontmatter */
+
+
+@page {
+  margin: 30mm 30mm 30mm 40mm;
+  size: A4 portrait;
+}
+
+@page {
+  @top-right {
+    content: counter(page);
+    vertical-align: bottom;
+    padding-bottom: 1em;
+  }
+}
+
+@page caratula { margin: 0; }
+
+@page frontmatter {
+  @top-right {
+    content: counter(page, lower-roman);
+    /*content: string(title);*/
+    vertical-align: bottom;
+    padding-bottom: 1em;
+  }
+}
+
+@page blank {
+  @top-right { content: normal }
+  @bottom-right { content: normal }
+}
+
+
+/* which section uses which named page */
+div.caratula { page: blank }
+div.caratula p
+{
+  font-weight:bold;
+  text-align: center;
+}
+div.caratula h1{
+  page-break-before: avoid;
+  font-size:14pt;
+  font-weight:bold;
+  margin: 2em 0;
+}
+div.caratula h2{
+  text-align: center;
+  font-size:14pt;
+  font-weight:bold;
+}
+div.caratula h3{
+  font-size:14pt;
+  font-weight:bold;
+  text-align: left;
+  font-style: normal;
+}
+div.caratula h4{
+  font-size:12pt;
+  font-weight:bold;
+  text-align: left;
+  font-style: normal;
+  margin: 2em 0;
+}
+
+div.agradecimientos,
+div.dedicatoria,
+div.resumen,
+div.abstract,
+div.toc,
+div.lot,
+div.lof { 
+  page: frontmatter;
+   }
+
+div.agradecimientos,
+div.dedicatoria,
+div.resumen,
+div.abstract
+{
+  page-break-before: always;
+}
+
+div.cuerpo{
+  counter-reset: page 1
+}
+
+div.contracaratula { page: blank }
+
+div.cuerpo p{
+  text-indent: 1.2cm;
+}
+
+div.cuerpo li > p{
+  text-indent: 0;
+}
+
+div.cuerpo li
+{
+  margin-left: 1.2cm;
+}
+/* TOC */
+
+ul.toc, ul.toc ul { 
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+ul.toc ul {
+  font-weight: normal;
+}
+ul.toc > li { 
+  font-weight: normal;
+}
+ul.toc a::after {
+  content: leader('.') target-counter(attr(href), page);
+  font-style: normal;
+}
+ul.toc > li.frontmatter a::after {
+  content: leader('.') target-counter(attr(href), page, lower-roman);
+  font-style: normal;
+}
+
+ul.toc > li.chapter
+{
+  text-transform: uppercase;
+}
+ul.toc > li.chapter::before {
+  font-weight: normal;
+  counter-increment: toc-chapter;
+  page-break-after: avoid;
+}
+
+/* lOF */
+
+ol.lof{ 
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+
+ol.lof > li { 
+  font-weight: normal;
+  counter-increment: item
+}
+
+ol.lof a::after {
+  content: leader('.') target-counter(attr(href), page);
+  font-style: normal;
+}
+
+ol.lof li::before {
+  content: "Figura " counter(item) ". ";
+  font-style: italic;
+}
+
+/*ul.toc > li.chapter::before {
+  content: "Capítulo " counter(toc-chapter, upper-roman);
+  font-weight: normal;
+  counter-increment: toc-chapter;
+  page-break-after: avoid;
+}*/
+
+/* figures and tables*/
+
+div.figure {
+  margin: 1em 0;
+  counter-increment: figure;
+}
+
+div.figure p{
+  margin: 0;
+  
+}
+
+div.figure p.art img
+{
+  max-width: 14cm;
+  max-height: 10cm;
+}
+div.figure p.art
+{
+  text-indent: 0;
+  margin: 0;
+  text-align: center;
+} 
+
+div.figure p.caption, div.table p.caption {
+  font: 1em/1
+}
+
+div.figure p.nota, div.table p.nota{
+  font: 0.9em/1;
+}
+
+div.figure .caption::before {
+  content: "Figura " counter(figure) ". ";
+  font-style: italic;
+}
+
+div.table .caption::before {
+  content: "Tabla " counter(table) ". ";
+  font-style: italic;
+}
+
+div.table {
+  margin: 1em 0;
+  counter-increment: table;
+}
+
+div.table th {
+  text-align: left;
+}
+
+table th, table td {
+  text-align: left;
+  padding-right: 1em;
+}
+
+table.lined td, table.lined th {
+  border-top: none;
+  border-bottom: thin dotted;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.error{
+  color: red;
+}
+
+.logo_centrum
+{
+  width: 10cm  
+}
+

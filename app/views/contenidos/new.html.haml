@@ -1,0 +1,20 @@
+- title "Crear Contenido para #{@documento}"
+
+%p
+  Puede crear sus contenidos utilizando texto plano. 
+  %br
+  Nótese que los contenidos se generan de manera simple, 
+  sin formato alguno. Puede ingresar texto plano, texto en *negrita* o texto en _cursiva_.
+  %br
+  Los párrafos se separan por una linea en blanco
+  %br
+  Las lístas se crean utilizando un guión: - elemento lista   ó  1. Elemento lista numerada
+
+%p
+  Para pegar una figura utilice la etiqueta figura_XX que podrá encontrar al lado derecho, 
+  luego de ingresar la figura.
+
+= render :partial => 'form'
+
+%p
+  = link_to "Regresar al listado", documento_contenidos_path(@documento)

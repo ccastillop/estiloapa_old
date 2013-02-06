@@ -1,0 +1,19 @@
+%h1 Ingreso
+%p= "Para crear documentos o modificar sus datos, por favor inicie la sesión o #{link_to "REGÍSTRESE", new_user_path}"
+
+- form_for @user_session, :url => user_session_path, :html => {:class => "form"} do |f|
+  = f.error_messages
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email
+  %p
+    = f.label :password, "Clave"
+    %br
+    = f.password_field :password
+  %p
+    = f.check_box :remember_me, :class => "otro", :id => "recuerdame"  
+    = f.label :remember_me, "Recuérdeme", :for => "recuerdame" 
+    = f.submit "Ingresar", :class => "boton" 
+  %p
+    %strong= link_to "¿Olvidó su clave?", new_password_reset_path

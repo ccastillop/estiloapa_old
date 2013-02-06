@@ -1,0 +1,8 @@
+%h1 Modificar mi cuenta
+- form_for @user, :url => @user, :html => {:class => "form"} do |f|
+  = f.error_messages
+  = render :partial => "form", :object => f
+  %p= f.submit "Registrar", :class => "boton" 
+  .clear
+%br
+%p= link_to "Regresar a mi cuenta", @user

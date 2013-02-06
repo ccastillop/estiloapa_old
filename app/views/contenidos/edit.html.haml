@@ -1,0 +1,9 @@
+- title "Modificar Contenido"
+.formulario
+  = render :partial => 'form'
+- if request.xhr?
+  = link_to_remote "CANCELAR", :update => dom_id(@contenido), :url => [@documento,@contenido], :method => :get 
+- else
+  %p
+    = link_to "Cancelar", [@documento,@contenido]
+    = link_to "Regresar a la lista", documento_contenidos_path(@documento)

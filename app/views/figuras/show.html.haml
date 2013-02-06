@@ -1,0 +1,23 @@
+- title "Figura"
+
+%p
+  %strong Dentro de:
+  =h @figura.documento
+%p
+  %strong Código:
+  = @figura.to_s
+%p
+  = image_tag @figura.img.url
+%p
+  %strong Nombre:
+  =h @figura.nombre
+%p
+  %strong Descripcion:
+  =h @figura.descripcion
+
+%p
+  = link_to "Edit", edit_documento_figura_path(@documento,@figura)
+  |
+  = link_to "Destroy",[@documento,@figura], :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", documento_figuras_path(@documento)

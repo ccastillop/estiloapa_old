@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }
+    %meta{ :name => "author", :content => "Autores" }
+    %meta{ :name => "subject", :content => "Título" }
+    %meta{ :name => "keywords", :content => "Palabras clave" }
+  %body
+    = render :partial => 'cabecera'
+    .cuerpo
+      = html(@documento)
+    .contracaratula

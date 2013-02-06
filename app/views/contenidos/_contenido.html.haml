@@ -1,0 +1,3 @@
+= content_tag(:a," ", :name => contenido.to_param)
+= content_tag( "h#{contenido.level}", contenido.nombre + link_to_remote( image_tag("icons/pencil.png",:title => "editar"), {:update => dom_id(contenido), :url => edit_polymorphic_path([@documento, contenido]), :method => :get }) )
+= markdown contenido.texto

@@ -1,0 +1,8 @@
+- title "Edit Figura"
+
+= render :partial => 'form'
+
+%p
+  = link_to "Show", documento_figura_path(@documento, @figura)
+  |
+  = link_to "View All", documento_figuras_path(@documento)

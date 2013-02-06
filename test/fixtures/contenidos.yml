@@ -1,0 +1,17 @@
+one:
+  nombre: MyString
+  parent_id: 1
+  lft: 1
+  rgt: 1
+  documento_id: 1
+  user_id: 1
+  texto: MyText
+
+two:
+  nombre: MyString
+  parent_id: 1
+  lft: 1
+  rgt: 1
+  documento_id: 1
+  user_id: 1
+  texto: MyText

@@ -1,0 +1,17 @@
+%h1 Regístrese en estiloAPA.com
+%p 
+  Regístrese y podrá crear documentos y contenidos, subir figuras, 
+  crear tablas y referencias y obtener finalmente un documento en 
+  estilo APA listo para imprimir. 
+%p
+  También podrá invitar a su grupo a modificar sus documentos,
+  hacerles seguimiento (saber qué tanto han avanzado), 
+  ver sus modificaciones y deshacer cambios y 
+  tener control sobre sus documentos
+%p
+  Por favor, ingrese los datos solicitados:
+- form_for @user, :url => @user, :html => {:class => "form"} do |f|
+  = f.error_messages
+  = render :partial => "form", :object => f
+  %p= f.submit "Registrarme", :class => "boton" 
+  .clear

@@ -1,0 +1,25 @@
+- title "Documento: #{@documento}", false
+%h1= link_to @documento, [@user,@documento]
+
+%p
+  %strong Propietario:
+  =h @documento.user
+
+%p
+  = link_to "<< Listado", user_documentos_path(@user)
+  |
+  = link_to "Modificar Tabla de contenidos", documento_contenidos_path(@documento)
+  |
+  = link_to "Opciones del documento", edit_user_documento_path(@user,@documento)
+  |
+  = link_to "Exportar PDF formato APA", user_documento_path(@user,@documento,:format=>:pdf)
+  
+
+= render :partial => 'cabecera'
+
+%hr
+/presentamos el documento editable en línea
+
+- @contenidos.each do |c|
+  %div{ :id=>dom_id(c) }
+    = render :partial => "contenidos/contenido", :locals => {:contenido => c} 
